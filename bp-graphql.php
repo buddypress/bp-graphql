@@ -181,7 +181,7 @@ if ( ! class_exists( 'BPGraphQL' ) ) :
 				 *
 				 * @param BPGraphQL $instance The instance of the BPGraphQL class
 				 */
-				do_action( 'graphql_init', self::$instance );
+				do_action( 'bpgraphql_init', self::$instance );
 
 			} );
 

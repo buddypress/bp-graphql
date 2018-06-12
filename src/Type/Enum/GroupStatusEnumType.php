@@ -1,6 +1,6 @@
 <?php
 
-namespace WPGraphQL\Type\Enum;
+namespace BPGraphQL\Type\Enum;
 
 use WPGraphQL\Type\WPEnumType;
 
@@ -9,30 +9,42 @@ use WPGraphQL\Type\WPEnumType;
  *
  * This defines an EnumType with allowed post stati that are registered to WordPress.
  *
- * @package WPGraphQL\Type\Enum
  * @since   0.0.1-alpha
+ * @package BPGraphQL
  */
 class GroupStatusEnum extends WPEnumType {
 
 	/**
 	 * This holds the enum values array
 	 *
+	 * @access private
+	 * @since 0.0.1-alpha
 	 * @var array $values
 	 */
 	private static $values;
 
+	/**
+	 * GroupStatusEnum constructor.
+	 *
+	 * @access public
+	 * @since 0.0.1-alpha
+	 * @return void
+	 */
 	public function __construct() {
-		$config = [
+		$config = array(
 			'name'        => 'GroupStatusEnum',
 			'description' => __( 'The status of the group.', 'bp-graphql' ),
 			'values'      => self::values(),
-		];
+		);
+
 		parent::__construct( $config );
 	}
 
 	/**
-	 * values
+	 * Values.
 	 *
+	 * @access private
+	 * @since 0.0.1-alpha
 	 * @return array
 	 */
 	private static function values() {
@@ -64,10 +76,10 @@ class GroupStatusEnum extends WPEnumType {
 			 */
 			foreach ( $group_status as $status ) {
 
-				self::$values[ $status ] = [
+				self::$values[ $status ] = array(
 					'description' => sprintf( __( 'Group with the %1$s status', 'bp-graphql' ), $status ),
 					'value'       => $status,
-				];
+				);
 			}
 		}
 
