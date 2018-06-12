@@ -1,0 +1,32 @@
+{
+  "name": "renatonascalves/bp-graphql",
+  "description": "GraphQL API for BuddyPress",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0+",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Renato Alves",
+      "email": "contato@ralv.es"
+    }
+  ],
+  "require": {
+    "webonyx/graphql-php": "^0.11.2",
+    "ivome/graphql-relay-php": "^0.3.1"
+  },
+  "require-dev": {
+    "apigen/apigen": "^4.1",
+    "lucatume/wp-browser": "~1.21.20"
+  },
+  "config": {
+    "optimize-autoloader": true
+  },
+  "autoload": {
+    "psr-4": {
+      "BPGraphQL\\": "src/"
+    },
+    "classmap": [
+      "src/"
+    ]
+  }
+}
