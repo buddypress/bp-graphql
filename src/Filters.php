@@ -8,6 +8,7 @@ use GraphQLRelay\Relay;
 use WPGraphQL\AppContext;
 use WPGraphQL\Types as WPTypes;
 use BPGraphQL\Types;
+use BPGraphQL\Data\DataSource;
 
 /**
  * Class Filters.
@@ -18,35 +19,26 @@ use BPGraphQL\Types;
 class Filters {
 
 	/**
-	 * Filters the GraphQL root query fields, to add entry points for BuddyPress
+	 * Filters the WPGraphQL root query fields and introduce entry points for BuddyPress
 	 *
 	 * @param array $fields An array with fields.
 	 *
 	 * @access public
 	 * @since 0.0.1-alpha
-	 * @return mixed
+	 * @return array
 	 */
 	public static function add_fields( $fields ) {
 
-		// Group component active?
-		if ( bp_is_active( 'groups' ) ) {
-			$fields['group'] = [
-				'type'        => Types::group_type(),
-				'description' => __( 'Group defined for BuddyPress', 'bp-graphql' ),
-				'args'        => [
-					'id' => WPTypes::non_null( WPTypes::id() ),
-				],
-				'resolve' => function ( $source, array $args, AppContext $context, ResolveInfo $info ) {
-					$group = groups_get_group( $args['id'] );
-
-					if ( empty( $group->id ) ) {
-						throw new UserError( sprintf( __( 'No group was found with the ID: %1$s', 'bp-graphql' ), $id ) );
-					}
-
-					return $group;
-				},
-			];
-		}
+		$fields['group'] = [
+			'type'        => Types::group_type(),
+			'description' => __( 'Group defined for BuddyPress', 'bp-graphql' ),
+			'args'        => [
+				'id' => WPTypes::non_null( WPTypes::id() ),
+			],
+			'resolve' => function ( $source, array $args, AppContext $context, ResolveInfo $info ) {
+				return DataSource::resolve_group( $args['id'] );
+			},
+		];
 
 		return $fields;
 

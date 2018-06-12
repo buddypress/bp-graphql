@@ -26,7 +26,7 @@ class Types {
 	 *
 	 * @access public
 	 * @since  0.0.1-alpha
-	 * @return GroupType object
+	 * @return \GroupType object
 	 */
 	public static function group_type() {
 		return self::$group_type ?: ( self::$group_type = new GroupType() );

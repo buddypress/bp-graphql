@@ -1,15 +1,21 @@
 {
-  "name": "renatonascalves/bp-graphql",
-  "description": "GraphQL API for BuddyPress",
+  "name": "buddypress/bp-graphql",
   "type": "wordpress-plugin",
+  "description": "GraphQL API for BuddyPress",
+  "keywords": [ "buddypress", "community", "wordpress", "bp", "grapql" ],
+  "homepage": "https://github.com/buddypress/bp-graphql",
   "license": "GPL-3.0+",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "authors": [
     {
-      "name": "Renato Alves",
-      "email": "contato@ralv.es"
+      "name": "The BuddPress Contributors",
+      "homepage": "https://buddypress.org/"
     }
   ],
+  "support": {
+    "issues": "https://github.com/buddypress/bp-graphql/issues",
+    "source": "https://github.com/buddypress/bp-graphql"
+  },
   "require": {
     "webonyx/graphql-php": "^0.11.2",
     "ivome/graphql-relay-php": "^0.3.1"

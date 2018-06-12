@@ -10,7 +10,7 @@ use WPGraphQL\Type\WPObjectType;
 use WPGraphQL\Types;
 
 /**
- * Group Type
+ * BuddyPress Group Type
  *
  * @since   0.0.1-alpha
  * @package BPGraphQL
@@ -18,20 +18,20 @@ use WPGraphQL\Types;
 class GroupType extends WPObjectType {
 
 	/**
-	 * Holds the $fields definition for the GroupType
+	 * Holds the GroupType name
 	 *
 	 * @access private
 	 * @since 0.0.1-alpha
-	 * @var $fields
+	 * @var string $type_name
 	 */
 	private static $type_name;
 
 	/**
-	 * Holds the fields
+	 * Holds the GroupType fields
 	 *
 	 * @access private
 	 * @since 0.0.1-alpha
-	 * @var object $fields
+	 * @var array $fields
 	 */
 	private static $fields;
 
